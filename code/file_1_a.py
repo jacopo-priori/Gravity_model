@@ -37,7 +37,7 @@ plt.yscale('log') # log scale
 plt.title('World GDP over time')
 plt.show()
 
-### TRADEFLOW CHART
+### TRADEFLOW CHART *to be revised*
 
 df_tf = df[['year','country_id_o', 'country_id_d', 'tradeflow_baci']]
 df_tf[['country_id_o', 'country_id_d']] = pd.DataFrame(np.sort(df_tf[['country_id_o', 'country_id_d']].values, axis=1), index=df.index)
