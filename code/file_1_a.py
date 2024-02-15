@@ -37,11 +37,12 @@ plt.yscale('log') # log scale
 plt.title('World GDP over time')
 plt.show()
 
-### TRADEFLOW CHART *wrong chart, to be revised*
+### TRADEFLOW CHART 
 
 df_tf = df[['year','country_id_o', 'country_id_d', 'tradeflow_baci']]
 df_tf[['country_id_o', 'country_id_d']] = pd.DataFrame(np.sort(df_tf[['country_id_o', 'country_id_d']].values, axis=1), index=df.index) 
-df_tf = df_tf.drop_duplicates(subset=['country_id_o', 'country_id_d']) # drop one observation in each pair of observations where the only difference is the direction of trade
+df_tf = df_tf.drop_duplicates(subset=['year','country_id_o', 'country_id_d']) # drop one observation in each pair of observations where the only difference is the direction of trade
+df_tf = df_tf.groupby('year')['tradeflow_baci'].sum().reset_index() # sum tradeflows per year
 print(df_tf.describe())
 print(df_tf.head(20))
 
