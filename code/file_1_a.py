@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 ### DATAFRAME
 
-chunks = pd.read_csv('C:\\Users\\HP\\Desktop\\gravity\\Gravity_V202211.csv', chunksize=2000)
+chunks = pd.read_csv('\Gravity_V202211.csv', chunksize=2000)
 dfs = [] 
 for chunk in chunks: # filter dataframes
     df_grav = pd.DataFrame(chunk)
@@ -40,15 +40,14 @@ plt.show()
 ### TRADEFLOW CHART *to be revised*
 
 df_tf = df[['year','country_id_o', 'country_id_d', 'tradeflow_baci']]
-df_tf[['country_id_o', 'country_id_d']] = pd.DataFrame(np.sort(df_tf[['country_id_o', 'country_id_d']].values, axis=1), index=df.index)
-df_tf = df_tf.drop_duplicates(subset=['country_id_o', 'country_id_d'])
-df_tf = df_tf.groupby('year')['tradeflow_baci'].sum().reset_index()
+df_tf[['country_id_o', 'country_id_d']] = pd.DataFrame(np.sort(df_tf[['country_id_o', 'country_id_d']].values, axis=1), index=df.index) 
+df_tf = df_tf.drop_duplicates(subset=['country_id_o', 'country_id_d']) # drop one observation in each pair of observations where the only difference is the direction of trade
 print(df_tf.describe())
 print(df_tf.head(20))
 
-plt.plot(df_tf['year'], df_tf['tradeflow_baci'])
+plt.plot(df_tf['year'], df_tf['tradeflow_baci'])# plot world tradeflow
 plt.xlabel('Year')
 plt.ylabel('lorem ipsum')
-plt.yscale('log')
+plt.yscale('log') # log scale
 plt.title('World trade flow over time')
 plt.show()
