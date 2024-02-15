@@ -39,10 +39,10 @@ plt.show()
 
 ### TRADEFLOW CHART
 
-df_tf = df[['year','country_id_o', 'country_id_d', 'tradeflow_baci', 'distw_harmonic']]
+df_tf = df[['year','country_id_o', 'country_id_d', 'tradeflow_baci']]
 df_tf[['country_id_o', 'country_id_d']] = pd.DataFrame(np.sort(df_tf[['country_id_o', 'country_id_d']].values, axis=1), index=df.index)
 df_tf = df_tf.drop_duplicates(subset=['country_id_o', 'country_id_d'])
-df_tf = df_tf.groupby('year')[['tradeflow_baci', 'distw_harmonic']].sum().reset_index()
+df_tf = df_tf.groupby('year')['tradeflow_baci'].sum().reset_index()
 print(df_tf.describe())
 print(df_tf.head(20))
 
