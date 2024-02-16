@@ -34,7 +34,7 @@ print(df_tf.head(20))
 
 plt.plot(df_tf['year'], df_tf['tradeflow_baci']) # plot world tradeflow
 plt.xlabel('Year')
-plt.ylabel('Trade flow in thousands USD')
+plt.ylabel('Sum of trade flows in thousands USD')
 plt.yscale('log') # log scale
 plt.title('World trade flow over time')
 plt.show()
@@ -48,7 +48,7 @@ print(df_gdp.describe())
 
 plt.plot(df_gdp['year'], df_gdp['gdp_ppp_pwt_o']) # plot world GDP
 plt.xlabel('Year')
-plt.ylabel('Log of sum of deflated GDP at current PPP in 2011 thousands USD')
+plt.ylabel('Sum of deflated GDP at current PPP in 2011 thousands USD')
 plt.yscale('log') # log scale
 plt.title('World GDP over time')
 plt.show()
@@ -80,4 +80,3 @@ plt.xlabel('Year')
 plt.ylabel('Average of population-weighted harmonic mean distance in km')
 plt.title('Average distance over time')
 plt.show()
-
