@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 ### DATAFRAME
 
-chunks = pd.read_csv('data\Gravity_V202211.csv', chunksize=2000)
+chunks = pd.read_csv('data\\Gravity_V202211.csv', chunksize=2000)
 dfs = [] 
 for chunk in chunks: # filter dataframes
     df_grav = pd.DataFrame(chunk)
