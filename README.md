@@ -1,5 +1,5 @@
 
-Test of the Gravity Model, which predicts that trade flows between countries are positely related to their size and negatively related to their distance
+Test of the Gravity Model, which predicts that trade flows between countries are positively related to their size and negatively related to their distance
 
 <br>
 
